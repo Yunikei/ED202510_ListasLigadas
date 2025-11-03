@@ -8,5 +8,11 @@ namespace SimplementeLigadas
 {
     internal class Lista
     {
+        private Nodo _nodoInicial;
+
+        public Lista()
+        {
+            _nodoInicial = new Nodo();
+        }
     }
 }
