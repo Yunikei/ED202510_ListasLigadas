@@ -14,5 +14,18 @@ namespace SimplementeLigadas
         {
             _nodoInicial = new Nodo();
         }
+
+        public void Agregar(string valor)
+        {
+           //Llegar al final de la lista
+           Nodo nodoActual = _nodoInicial;
+           while (nodoActual.Siguiente != null)
+            {
+                nodoActual = nodoActual.Siguiente;
+            }
+            
+           Nodo nuevoNodo = new Nodo(valor);
+           nodoActual.Siguiente = nuevoNodo;
+        }
     }
 }
