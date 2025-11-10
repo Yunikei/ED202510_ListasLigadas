@@ -27,5 +27,19 @@ namespace SimplementeLigadas
            Nodo nuevoNodo = new Nodo(valor);
            nodoActual.Siguiente = nuevoNodo;
         }
+
+        public string ObtenerDatos()
+        {
+            string datos = string.Empty;
+
+            Nodo nodoActual = _nodoInicial;
+            while (nodoActual.Siguiente != null) 
+            {
+                nodoActual = nodoActual.Siguiente;
+                datos = datos + nodoActual.Valor + Environment.NewLine;
+            }
+
+            return datos;
+        }
     }
 }
