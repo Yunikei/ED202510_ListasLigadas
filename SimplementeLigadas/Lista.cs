@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SimplementeLigadas
+﻿namespace SimplementeLigadas
 {
     internal class Lista
     {
@@ -17,15 +11,15 @@ namespace SimplementeLigadas
 
         public void Agregar(string valor)
         {
-           //Llegar al final de la lista
-           Nodo nodoActual = _nodoInicial;
-           while (nodoActual.Siguiente != null)
+            //Llegar al final de la lista
+            Nodo nodoActual = _nodoInicial;
+            while (nodoActual.Siguiente != null)
             {
                 nodoActual = nodoActual.Siguiente;
             }
-            
-           Nodo nuevoNodo = new Nodo(valor);
-           nodoActual.Siguiente = nuevoNodo;
+
+            Nodo nuevoNodo = new Nodo(valor);
+            nodoActual.Siguiente = nuevoNodo;
         }
 
         public string ObtenerDatos()
@@ -33,7 +27,7 @@ namespace SimplementeLigadas
             string datos = string.Empty;
 
             Nodo nodoActual = _nodoInicial;
-            while (nodoActual.Siguiente != null) 
+            while (nodoActual.Siguiente != null)
             {
                 nodoActual = nodoActual.Siguiente;
                 datos = datos + nodoActual.Valor + Environment.NewLine;
@@ -41,5 +35,34 @@ namespace SimplementeLigadas
 
             return datos;
         }
+
+        public Nodo? Buscar(string dato)
+        {
+            Nodo nodoActual = _nodoInicial;
+            while (nodoActual.Siguiente != null)
+            {
+                nodoActual = nodoActual.Siguiente;
+                if(nodoActual.Valor == dato)
+                {
+                    return nodoActual;
+                }
+            }
+            return null;
+        }
+        public Nodo? BuscarAnterior(string dato)
+        {
+            Nodo nodoActual = _nodoInicial;
+            while (nodoActual.Siguiente != null)
+            {
+                if (nodoActual.Siguiente.Valor == dato)
+                {
+                    return nodoActual;
+                }
+                nodoActual = nodoActual.Siguiente;
+            }
+            return null;
+        }
+
     }
 }
+
